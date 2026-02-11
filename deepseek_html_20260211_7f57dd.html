@@ -1,0 +1,1078 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>বাংলাদেশের ১৩তম সাধারণ নির্বাচন - গণভোটের মহাযজ্ঞ</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@300;400;500;600;700;800&family=Tiro+Bangla&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bangla-green: #006A4E;
+            --bangla-red: #f42a41;
+            --bangla-gold: #FFD700;
+            --bangla-sky: #87CEEB;
+            --bangla-cream: #FFF8E7;
+            --shadow: rgba(0, 0, 0, 0.2);
+            --light-shadow: rgba(255, 255, 255, 0.1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Noto Sans Bengali', 'Tiro Bangla', sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, 
+                #0a3d2f 0%, 
+                var(--bangla-green) 25%, 
+                #1e7a5e 50%, 
+                var(--bangla-red) 75%, 
+                #d91e36 100%);
+            color: white;
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+        }
+        
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(255, 215, 0, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(244, 42, 65, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(0, 106, 78, 0.15) 0%, transparent 50%);
+            z-index: -1;
+            pointer-events: none;
+        }
+        
+        .floating-element {
+            position: fixed;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(255, 215, 0, 0.1) 0%, transparent 70%);
+            z-index: -1;
+            pointer-events: none;
+            animation: float 20s infinite ease-in-out;
+        }
+        
+        .floating-element:nth-child(1) {
+            top: 10%;
+            left: 5%;
+            width: 200px;
+            height: 200px;
+            animation-delay: 0s;
+        }
+        
+        .floating-element:nth-child(2) {
+            bottom: 15%;
+            right: 10%;
+            width: 250px;
+            height: 250px;
+            animation-delay: 5s;
+            background: radial-gradient(circle, rgba(244, 42, 65, 0.1) 0%, transparent 70%);
+        }
+        
+        .floating-element:nth-child(3) {
+            top: 50%;
+            left: 80%;
+            width: 150px;
+            height: 150px;
+            animation-delay: 10s;
+            background: radial-gradient(circle, rgba(0, 106, 78, 0.1) 0%, transparent 70%);
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            33% { transform: translateY(-20px) rotate(120deg); }
+            66% { transform: translateY(20px) rotate(240deg); }
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* হেডার সেকশন */
+        .header-section {
+            text-align: center;
+            padding: 40px 20px;
+            background: linear-gradient(145deg, 
+                rgba(0, 106, 78, 0.85), 
+                rgba(0, 106, 78, 0.7));
+            border-radius: 25px;
+            margin-bottom: 40px;
+            box-shadow: 
+                0 15px 35px var(--shadow),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+            border: 3px solid var(--bangla-gold);
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+        }
+        
+        .header-section::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, 
+                var(--bangla-green), 
+                var(--bangla-gold), 
+                var(--bangla-red));
+            z-index: 2;
+        }
+        
+        .main-title {
+            font-size: 3.5rem;
+            color: var(--bangla-gold);
+            margin-bottom: 15px;
+            text-shadow: 
+                3px 3px 0 var(--bangla-green),
+                6px 6px 10px rgba(0, 0, 0, 0.4);
+            line-height: 1.2;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .main-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 25%;
+            width: 50%;
+            height: 4px;
+            background: linear-gradient(90deg, 
+                transparent, 
+                var(--bangla-gold), 
+                transparent);
+        }
+        
+        .subtitle {
+            font-size: 1.6rem;
+            color: var(--bangla-cream);
+            margin-bottom: 25px;
+            font-weight: 500;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+        
+        .date-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 15px;
+            background: linear-gradient(135deg, 
+                rgba(244, 42, 65, 0.9), 
+                rgba(0, 106, 78, 0.9));
+            padding: 18px 35px;
+            border-radius: 50px;
+            font-size: 1.4rem;
+            margin-top: 20px;
+            border: 2px solid var(--bangla-gold);
+            box-shadow: 
+                0 8px 20px rgba(0, 0, 0, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3);
+            animation: pulse-glow 3s infinite;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .date-badge::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, 
+                transparent 30%, 
+                rgba(255, 255, 255, 0.1) 50%, 
+                transparent 70%);
+            animation: shine 4s infinite linear;
+        }
+        
+        @keyframes pulse-glow {
+            0%, 100% { 
+                box-shadow: 
+                    0 8px 20px rgba(0, 0, 0, 0.3),
+                    inset 0 1px 0 rgba(255, 255, 255, 0.3),
+                    0 0 20px rgba(255, 215, 0, 0.3); 
+            }
+            50% { 
+                box-shadow: 
+                    0 8px 20px rgba(0, 0, 0, 0.3),
+                    inset 0 1px 0 rgba(255, 255, 255, 0.3),
+                    0 0 40px rgba(255, 215, 0, 0.6); 
+            }
+        }
+        
+        @keyframes shine {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+        }
+        
+        /* কাউন্টডাউন সেকশন */
+        .countdown-section {
+            margin: 50px 0;
+            position: relative;
+        }
+        
+        .countdown-title {
+            text-align: center;
+            font-size: 2.2rem;
+            color: var(--bangla-cream);
+            margin-bottom: 40px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 0 30px;
+        }
+        
+        .countdown-title::before,
+        .countdown-title::after {
+            content: '⚖️';
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 2rem;
+            opacity: 0.8;
+        }
+        
+        .countdown-title::before {
+            left: -10px;
+        }
+        
+        .countdown-title::after {
+            right: -10px;
+        }
+        
+        .countdown-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+        
+        .countdown-card {
+            background: linear-gradient(145deg, 
+                rgba(255, 255, 255, 0.15), 
+                rgba(255, 255, 255, 0.05));
+            border-radius: 20px;
+            padding: 35px 20px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 
+                0 10px 25px rgba(0, 0, 0, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .countdown-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, 
+                var(--bangla-green), 
+                var(--bangla-gold), 
+                var(--bangla-red));
+        }
+        
+        .countdown-card:hover {
+            transform: translateY(-15px) scale(1.05);
+            box-shadow: 
+                0 20px 40px rgba(0, 0, 0, 0.3),
+                0 0 30px rgba(255, 215, 0, 0.2);
+            border-color: rgba(255, 215, 0, 0.3);
+        }
+        
+        .countdown-number {
+            font-size: 4.5rem;
+            font-weight: 800;
+            color: var(--bangla-gold);
+            line-height: 1;
+            margin-bottom: 15px;
+            text-shadow: 
+                2px 2px 0 var(--bangla-green),
+                4px 4px 8px rgba(0, 0, 0, 0.3);
+            font-variant-numeric: tabular-nums;
+        }
+        
+        .countdown-label {
+            font-size: 1.4rem;
+            color: var(--bangla-cream);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        /* স্লোগান সেকশন */
+        .slogan-section {
+            background: linear-gradient(135deg, 
+                rgba(244, 42, 65, 0.25), 
+                rgba(0, 106, 78, 0.25));
+            padding: 50px 40px;
+            border-radius: 25px;
+            text-align: center;
+            margin: 60px 0;
+            position: relative;
+            overflow: hidden;
+            border: 3px solid transparent;
+            border-image: linear-gradient(45deg, var(--bangla-green), var(--bangla-gold), var(--bangla-red)) 1;
+            box-shadow: 
+                0 20px 40px rgba(0, 0, 0, 0.25),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        }
+        
+        .slogan-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="none"/><path d="M0,50 Q25,30 50,50 T100,50" stroke="rgba(255,215,0,0.1)" stroke-width="2" fill="none"/><path d="M0,70 Q25,50 50,70 T100,70" stroke="rgba(255,215,0,0.1)" stroke-width="2" fill="none"/><path d="M0,30 Q25,10 50,30 T100,30" stroke="rgba(255,215,0,0.1)" stroke-width="2" fill="none"/></svg>');
+            opacity: 0.3;
+        }
+        
+        .slogan-text {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--bangla-gold);
+            text-shadow: 
+                3px 3px 0 var(--bangla-red),
+                6px 6px 15px rgba(0, 0, 0, 0.4);
+            line-height: 1.3;
+            position: relative;
+            z-index: 1;
+            display: inline-block;
+        }
+        
+        .slogan-icon {
+            font-size: 3.5rem;
+            margin: 0 20px;
+            vertical-align: middle;
+            animation: scale-rotate 4s infinite ease-in-out;
+            filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.3));
+        }
+        
+        @keyframes scale-rotate {
+            0%, 100% { transform: scale(1) rotate(0deg); }
+            25% { transform: scale(1.1) rotate(5deg); }
+            75% { transform: scale(1.1) rotate(-5deg); }
+        }
+        
+        /* ভোটের গুরুত্ব সেকশন */
+        .vote-importance-section {
+            margin: 60px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: var(--bangla-cream);
+            margin-bottom: 50px;
+            position: relative;
+            padding-bottom: 20px;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 150px;
+            height: 4px;
+            background: linear-gradient(90deg, 
+                transparent, 
+                var(--bangla-gold), 
+                transparent);
+        }
+        
+        .importance-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .importance-card {
+            background: linear-gradient(145deg, 
+                rgba(255, 255, 255, 0.12), 
+                rgba(255, 255, 255, 0.05));
+            border-radius: 20px;
+            padding: 35px;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 
+                0 15px 30px rgba(0, 0, 0, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .importance-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, 
+                var(--bangla-green), 
+                var(--bangla-gold));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.6s ease;
+        }
+        
+        .importance-card:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .importance-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 
+                0 25px 50px rgba(0, 0, 0, 0.3),
+                0 0 40px rgba(255, 215, 0, 0.15);
+            border-color: rgba(255, 215, 0, 0.2);
+        }
+        
+        .card-icon {
+            font-size: 3rem;
+            color: var(--bangla-gold);
+            margin-bottom: 25px;
+            text-align: center;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .card-title {
+            font-size: 1.8rem;
+            color: var(--bangla-cream);
+            margin-bottom: 20px;
+            text-align: center;
+            font-weight: 700;
+        }
+        
+        .card-content {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.7;
+            text-align: justify;
+        }
+        
+        /* হ্যা ভোটের বিশেষ সেকশন */
+        .yes-vote-section {
+            background: linear-gradient(135deg, 
+                rgba(0, 106, 78, 0.3), 
+                rgba(76, 175, 80, 0.3));
+            padding: 50px 40px;
+            border-radius: 25px;
+            margin: 60px 0;
+            border: 3px solid var(--bangla-gold);
+            box-shadow: 
+                0 20px 40px rgba(0, 0, 0, 0.25),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .yes-vote-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, 
+                rgba(76, 175, 80, 0.1) 0%, 
+                transparent 70%);
+            animation: rotate 20s infinite linear;
+        }
+        
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .yes-title {
+            font-size: 2.8rem;
+            color: #4CAF50;
+            text-align: center;
+            margin-bottom: 40px;
+            text-shadow: 
+                2px 2px 0 var(--bangla-green),
+                4px 4px 8px rgba(0, 0, 0, 0.3);
+            position: relative;
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .yes-icon {
+            font-size: 3rem;
+            animation: bounce 2s infinite ease-in-out;
+        }
+        
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .yes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .yes-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            backdrop-filter: blur(5px);
+            border: 2px solid rgba(76, 175, 80, 0.3);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .yes-card::before {
+            content: '✅';
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 1.2rem;
+            opacity: 0.3;
+        }
+        
+        .yes-card:hover {
+            transform: translateY(-8px);
+            background: rgba(76, 175, 80, 0.2);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+            border-color: #4CAF50;
+        }
+        
+        .yes-card h3 {
+            color: #C8E6C9;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+        
+        .yes-card p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+        
+        /* তথ্য সেকশন */
+        .info-section {
+            background: linear-gradient(145deg, 
+                rgba(26, 35, 126, 0.3), 
+                rgba(13, 71, 161, 0.3));
+            padding: 50px 40px;
+            border-radius: 25px;
+            margin: 60px 0;
+            border: 3px solid rgba(255, 215, 0, 0.3);
+            box-shadow: 
+                0 20px 40px rgba(0, 0, 0, 0.25),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        }
+        
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .info-item {
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .info-item:hover {
+            background: rgba(255, 255, 255, 0.12);
+            transform: translateY(-5px);
+        }
+        
+        .info-icon {
+            font-size: 2.5rem;
+            color: var(--bangla-gold);
+            margin-bottom: 15px;
+        }
+        
+        .info-item h4 {
+            color: var(--bangla-cream);
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+        
+        .info-item p {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1rem;
+        }
+        
+        /* ফুটার */
+        .footer {
+            text-align: center;
+            padding: 40px 20px;
+            background: linear-gradient(135deg, 
+                rgba(0, 0, 0, 0.4), 
+                rgba(0, 0, 0, 0.6));
+            border-radius: 20px;
+            margin-top: 60px;
+            border-top: 3px solid var(--bangla-gold);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="20" viewBox="0 0 100 20"><rect width="100" height="20" fill="none"/><path d="M0,10 Q25,5 50,10 T100,10" stroke="rgba(255,215,0,0.1)" stroke-width="2" fill="none"/></svg>');
+            opacity: 0.5;
+        }
+        
+        .developer {
+            font-size: 1.5rem;
+            color: var(--bangla-gold);
+            margin-bottom: 15px;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .footer-text {
+            color: var(--bangla-cream);
+            font-size: 1.1rem;
+            line-height: 1.6;
+            max-width: 600px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+        
+        /* মোবাইল রেস্পন্সিভ */
+        @media (max-width: 768px) {
+            .main-title {
+                font-size: 2.5rem;
+            }
+            
+            .subtitle {
+                font-size: 1.3rem;
+            }
+            
+            .date-badge {
+                font-size: 1.2rem;
+                padding: 15px 25px;
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .slogan-text {
+                font-size: 2.2rem;
+            }
+            
+            .slogan-icon {
+                font-size: 2.5rem;
+                margin: 0 10px;
+            }
+            
+            .countdown-number {
+                font-size: 3.5rem;
+            }
+            
+            .countdown-label {
+                font-size: 1.2rem;
+            }
+            
+            .yes-title {
+                font-size: 2.2rem;
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .container {
+                padding: 15px;
+            }
+            
+            .header-section,
+            .slogan-section,
+            .yes-vote-section,
+            .info-section {
+                padding: 30px 20px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .main-title {
+                font-size: 2rem;
+            }
+            
+            .countdown-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+            
+            .countdown-card {
+                padding: 25px 15px;
+            }
+            
+            .countdown-number {
+                font-size: 3rem;
+            }
+            
+            .slogan-text {
+                font-size: 1.8rem;
+            }
+            
+            .importance-grid,
+            .yes-grid,
+            .info-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .yes-title {
+                font-size: 1.8rem;
+            }
+        }
+        
+        /* স্ক্রলবার স্টাইল */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: rgba(0, 106, 78, 0.2);
+            border-radius: 5px;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(var(--bangla-green), var(--bangla-gold), var(--bangla-red));
+            border-radius: 5px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(var(--bangla-red), var(--bangla-gold), var(--bangla-green));
+        }
+    </style>
+</head>
+<body>
+    <!-- ফ্লোটিং এলিমেন্ট -->
+    <div class="floating-element"></div>
+    <div class="floating-element"></div>
+    <div class="floating-element"></div>
+    
+    <div class="container">
+        <!-- হেডার -->
+        <header class="header-section">
+            <h1 class="main-title">বাংলাদেশের ১৩তম সাধারণ নির্বাচন</h1>
+            <p class="subtitle">গণতন্ত্রের মহাযজ্ঞে আপনার ভোটই সবচেয়ে বড় অস্ত্র</p>
+            <div class="date-badge">
+                <span><i class="fas fa-calendar-star"></i> ১২ ফেব্রুয়ারি, ২০২৬</span>
+                <span><i class="fas fa-clock"></i> সকাল ৭:৩০ ঘটিকা থেকে</span>
+            </div>
+        </header>
+        
+        <!-- কাউন্টডাউন -->
+        <section class="countdown-section">
+            <h2 class="countdown-title">নির্বাচন শুরু হতে বাকি সময়</h2>
+            <div class="countdown-grid">
+                <div class="countdown-card">
+                    <div class="countdown-number" id="days">০০</div>
+                    <div class="countdown-label">দিন</div>
+                </div>
+                <div class="countdown-card">
+                    <div class="countdown-number" id="hours">০০</div>
+                    <div class="countdown-label">ঘন্টা</div>
+                </div>
+                <div class="countdown-card">
+                    <div class="countdown-number" id="minutes">০০</div>
+                    <div class="countdown-label">মিনিট</div>
+                </div>
+                <div class="countdown-card">
+                    <div class="countdown-number" id="seconds">০০</div>
+                    <div class="countdown-label">সেকেন্ড</div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- প্রধান স্লোগান -->
+        <section class="slogan-section">
+            <div class="slogan-text">
+                <span class="slogan-icon">⚖️</span> 
+                দাঁড়ি পাল্লায় ভোট দিন 
+                <span class="slogan-icon">⚖️</span>
+            </div>
+        </section>
+        
+        <!-- ভোটের গুরুত্ব -->
+        <section class="vote-importance-section">
+            <h2 class="section-title">গণভোটের মহিমা ও গুরুত্ব</h2>
+            <div class="importance-grid">
+                <div class="importance-card">
+                    <div class="card-icon"><i class="fas fa-democrat"></i></div>
+                    <h3 class="card-title">গণতন্ত্রের প্রাণ</h3>
+                    <div class="card-content">
+                        ভোট হলো গণতন্ত্রের হৃদস্পন্দন। আপনার একটি ভোটই পারে গণতন্ত্রকে প্রাণবন্ত রাখতে। এটি শুধু একটি অধিকার নয়, দেশপ্রেমেরও প্রকাশ।
+                    </div>
+                </div>
+                
+                <div class="importance-card">
+                    <div class="card-icon"><i class="fas fa-handshake"></i></div>
+                    <h3 class="card-title">সামাজিক চুক্তি</h3>
+                    <div class="card-content">
+                        ভোট হলো নাগরিক ও সরকারের মধ্যে একটি পবিত্র চুক্তি। আপনি ভোট দিয়ে সরকারকে জনগণের সেবায় নিয়োজিত থাকার অঙ্গীকার নেন।
+                    </div>
+                </div>
+                
+                <div class="importance-card">
+                    <div class="card-icon"><i class="fas fa-balance-scale-right"></i></div>
+                    <h3 class="card-title">ন্যায়বিচার প্রতিষ্ঠা</h3>
+                    <div class="card-content">
+                        সুষ্ঠু ভোটই পারে সমাজে ন্যায়বিচার প্রতিষ্ঠা করতে। এটি দুর্বলের কণ্ঠস্বরকে শক্তিশালী করে এবং শোষণের বিরুদ্ধে রক্ষাকবচ।
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- হ্যা ভোটের বিশেষ সেকশন -->
+        <section class="yes-vote-section">
+            <h2 class="yes-title">
+                <span class="yes-icon">✅</span>
+                কেন বলবেন "হ্যা" (হ্যাঁ) ভোট দিতে?
+                <span class="yes-icon">✅</span>
+            </h2>
+            
+            <div class="yes-grid">
+                <div class="yes-card">
+                    <h3>গণতন্ত্র রক্ষা</h3>
+                    <p>আপনার "হ্যা" ভোট গণতন্ত্রের ভিত মজবুত করে। প্রতিটি হ্যা ভোটই স্বৈরতন্ত্রের বিরুদ্ধে একটি শক্তিশালী প্রতিবাদ।</p>
+                </div>
+                
+                <div class="yes-card">
+                    <h3>নিজের মতামত প্রকাশ</h3>
+                    <p>"হ্যা" বলার মাধ্যমে আপনি স্পষ্টভাবে জানান দেন কোন নীতির পক্ষে আপনি। এটি আপনার রাজনৈতিক সচেতনতার প্রমাণ।</p>
+                </div>
+                
+                <div class="yes-card">
+                    <h3>দেশের উন্নয়ন ত্বরান্বিত</h3>
+                    <p>সঠিক প্রার্থীকে "হ্যা" বললে দেশের উন্নয়ন প্রকল্পগুলো দ্রুতগতিতে এগোবে। আপনার ভোটই নির্ধারণ করবে দেশের গতিপথ।</p>
+                </div>
+                
+                <div class="yes-card">
+                    <h3>নাগরিক অধিকার রক্ষা</h3>
+                    <p>ভোট দেওয়া আপনার সাংবিধানিক অধিকার। "হ্যা" বলেই এই অধিকার সম্পূর্ণরূপে প্রয়োগ করুন এবং রক্ষা করুন।</p>
+                </div>
+                
+                <div class="yes-card">
+                    <h3>জবাবদিহিতা নিশ্চিত</h3>
+                    <p>আপনার "হ্যা" ভোট প্রার্থীকে জনগণের কাছে জবাবদিহি করতে বাধ্য করে। এটি সুশাসনের প্রথম ধাপ।</p>
+                </div>
+                
+                <div class="yes-card">
+                    <h3>ভবিষ্যৎ প্রজন্মের নিরাপত্তা</h3>
+                    <p>আপনার আজকের "হ্যা" ভবিষ্যৎ প্রজন্মের জন্য একটি সমৃদ্ধ, নিরাপদ ও সুন্দর বাংলাদেশ নিশ্চিত করবে।</p>
+                </div>
+                
+                <div class="yes-card">
+                    <h3>আর্থিক স্বচ্ছতা</h3>
+                    <p>সঠিক প্রার্থীকে "হ্যা" বললে দেশের অর্থনীতি স্বচ্ছ ও জবাবদিহিতামূলক হবে, যা দারিদ্র্য বিমোচনে সাহায্য করবে।</p>
+                </div>
+                
+                <div class="yes-card">
+                    <h3>সামাজিক ন্যায়বিচার</h3>
+                    <p>আপনার ভোট সমাজের সব শ্রেণির মানুষের অধিকার রক্ষা করবে এবং সামাজিক সমতা প্রতিষ্ঠায় ভূমিকা রাখবে।</p>
+                </div>
+            </div>
+            
+            <!-- হ্যা ভোটের ফলাফল -->
+            <div style="margin-top: 40px; padding: 25px; background: rgba(0,0,0,0.3); border-radius: 15px;">
+                <h3 style="color: #4CAF50; text-align: center; margin-bottom: 20px; font-size: 1.5rem;">
+                    <i class="fas fa-bullseye"></i> "হ্যা" ভোটের সরাসরি ফলাফল
+                </h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+                    <div style="background: rgba(76,175,80,0.2); padding: 15px; border-radius: 10px; text-align: center;">
+                        <h4 style="color: #C8E6C9; margin-bottom: 8px;">✅ আপনার ভোট গণনা হবে</h4>
+                        <p style="color: rgba(255,255,255,0.8); font-size: 0.9rem;">দেশের সিদ্ধান্ত গ্রহণে অংশ নেবেন</p>
+                    </div>
+                    <div style="background: rgba(76,175,80,0.2); padding: 15px; border-radius: 10px; text-align: center;">
+                        <h4 style="color: #C8E6C9; margin-bottom: 8px;">✅ গণতন্ত্র শক্তিশালী হবে</h4>
+                        <p style="color: rgba(255,255,255,0.8); font-size: 0.9rem;">জনগণের অংশগ্রহণে গণতন্ত্র মজবুত হবে</p>
+                    </div>
+                    <div style="background: rgba(76,175,80,0.2); padding: 15px; border-radius: 10px; text-align: center;">
+                        <h4 style="color: #C8E6C9; margin-bottom: 8px;">✅ দেশের উন্নয়ন দ্রুত হবে</h4>
+                        <p style="color: rgba(255,255,255,0.8); font-size: 0.9rem;">যোগ্য নেতৃত্বে দেশ এগিয়ে যাবে</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- গুরুত্বপূর্ণ তথ্য -->
+        <section class="info-section">
+            <h2 class="section-title">নির্বাচন সম্পর্কে জরুরি তথ্য</h2>
+            <div class="info-grid">
+                <div class="info-item">
+                    <div class="info-icon"><i class="fas fa-user-check"></i></div>
+                    <h4>ভোটার তালিকা যাচাই</h4>
+                    <p>নির্বাচনের ৩০ দিন আগে ভোটার তালিকায় আপনার নাম নিশ্চিত করুন</p>
+                </div>
+                
+                <div class="info-item">
+                    <div class="info-icon"><i class="fas fa-id-card"></i></div>
+                    <h4>ভোটার নিবন্ধন কার্ড</h4>
+                    <p>ভোটকেন্দ্রে অবশ্যই ভোটার নিবন্ধন কার্ড সাথে নিয়ে যান</p>
+                </div>
+                
+                <div class="info-item">
+                    <div class="info-icon"><i class="fas fa-fingerprint"></i></div>
+                    <h4>বায়োমেট্রিক ভেরিফিকেশন</h4>
+                    <p>ভোটকেন্দ্রে বায়োমেট্রিক পদ্ধতিতে পরিচয় যাচাই হবে</p>
+                </div>
+                
+                <div class="info-item">
+                    <div class="info-icon"><i class="fas fa-shield-alt"></i></div>
+                    <h4>সুরক্ষা ব্যবস্থা</h4>
+                    <p>সকল ভোটকেন্দ্রে পর্যাপ্ত নিরাপত্তা বাহিনী মোতায়েন থাকবে</p>
+                </div>
+                
+                <div class="info-item">
+                    <div class="info-icon"><i class="fas fa-clock"></i></div>
+                    <h4>ভোটের সময়</h4>
+                    <p>সকাল ৭:৩০ ঘটিকা থেকে শুরু হয়ে বিকাল ৫:০০ ঘটিকা পর্যন্ত চলবে</p>
+                </div>
+                
+                <div class="info-item">
+                    <div class="info-icon"><i class="fas fa-exclamation-triangle"></i></div>
+                    <h4>সতর্কতা</h4>
+                    <p>ভোটের দিন কোনো রাজনৈতিক প্রচারণা বা প্রভাবকরণ চলবে না</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- ফুটার -->
+        <footer class="footer">
+            <div class="developer">ডিজাইন ও উন্নয়ন: SAFIYATH CHOWDHURY</div>
+            <div class="footer-text">
+                "গণতন্ত্রের সুশীতল ছায়ায়, সবার সম অধিকারে - আসুন আমরা সবাই মিলে ভোট দিই, 
+                দেশ গড়ি, গণতন্ত্র রক্ষা করি। আপনার একটি ভোটই পারে বাংলাদেশের ভাগ্য বদলে দিতে।"
+            </div>
+        </footer>
+    </div>
+    
+    <script>
+        // কাউন্টডাউন টাইমার
+        const electionDate = new Date('February 12, 2026 07:30:00').getTime();
+        
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const distance = electionDate - now;
+            
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            
+            // বাংলা সংখ্যায় রূপান্তর
+            document.getElementById('days').innerText = convertToBengaliDigits(days);
+            document.getElementById('hours').innerText = convertToBengaliDigits(hours);
+            document.getElementById('minutes').innerText = convertToBengaliDigits(minutes);
+            document.getElementById('seconds').innerText = convertToBengaliDigits(seconds);
+            
+            if (distance < 0) {
+                document.getElementById('days').innerText = '০০';
+                document.getElementById('hours').innerText = '০০';
+                document.getElementById('minutes').innerText = '০০';
+                document.getElementById('seconds').innerText = '০০';
+                
+                // কাউন্টডাউন টাইটেল আপডেট
+                const countdownTitle = document.querySelector('.countdown-title');
+                if (countdownTitle) {
+                    countdownTitle.innerHTML = '🎉 নির্বাচন শুরু হয়েছে! 🎉';
+                }
+                
+                // স্লোগান আপডেট
+                const sloganText = document.querySelector('.slogan-text');
+                if (sloganText) {
+                    sloganText.innerHTML = '<span class="slogan-icon">🎊</span> ভোট দিন, দেশ গড়ুন <span class="slogan-icon">🎊</span>';
+                }
+            }
+        }
+        
+        // বাংলা সংখ্যায় রূপান্তর ফাংশন
+        function convertToBengaliDigits(number) {
+            const bengaliDigits = ['০', '১', '২', '৩', '৪', '৫', '৬', '৭', '৮', '৯'];
+            let result = '';
+            const numberString = number.toString();
+            
+            for (let i = 0; i < numberString.length; i++) {
+                const digit = numberString.charAt(i);
+                if (digit >= '0' && digit <= '9') {
+                    result += bengaliDigits[digit];
+                } else {
+                    result += digit;
+                }
+            }
+            
+            return result.padStart(2, '০');
+        }
+        
+        // কার্ডগুলিতে হোভার এফেক্ট এড
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.countdown-card, .importance-card, .yes-card');
+            
+            cards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = this.classList.contains('countdown-card') 
+                        ? 'translateY(-15px) scale(1.05)' 
+                        : 'translateY(-10px)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0) scale(1)';
+                });
+            });
+            
+            // কাউন্টডাউন শুরু
+            updateCountdown();
+            setInterval(updateCountdown, 1000);
+        });
+    </script>
+</body>
+</html>
